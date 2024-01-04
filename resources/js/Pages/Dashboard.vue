@@ -8,7 +8,7 @@ import Welcome from '@/Components/Welcome.vue';
 export default {
     name: 'locale-changer',
     data() {
-        return {langs: ['ar', 'en']}
+        return { langs: ['ar', 'en'] }
     }
 }
 </script>
@@ -20,18 +20,18 @@ export default {
                 Dashboard {{ $t('Dashboard') }}
                 <div class="locale-changer">
                     <select v-model="$i18n.locale">
-                      <option v-for="(lang, i) in langs" :key="`Lang${i}`" :value="lang">
-                        {{ lang }}
-                      </option>
+                        <option v-for="(lang, i) in langs" :key="`Lang${i}`" :value="lang">
+                            {{ lang }}
+                        </option>
                     </select>
-                  </div>
+                </div>
             </h2>
         </template>
 
         <div class="py-12">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
-                    <Welcome/>
+                    <Welcome />
                 </div>
             </div>
         </div>

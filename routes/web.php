@@ -3,6 +3,10 @@
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use Illuminate\Http\Request;
+use App\Http\Controllers\YourController;
+use Illuminate\Support\Facades\Session;
+use App\Http\Middleware\SetLocale;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,3 +37,18 @@ Route::middleware([
         return Inertia::render('Dashboard');
     })->name('dashboard');
 });
+
+Route::post('/set-locale', function (Request $request) {
+    $language = $request->input('language');
+    session(['locale' => $language]);
+})->middleware(SetLocale::class);
+
+
+
+Route::get('/language', function (Request $request) {
+    //    $settings = Settings::find(Auth::user()->id);
+        // $settings = Settings::where('user_id', Auth::user()->id)->first();
+
+        return response()->json(['locale' =>  session('locale')]);
+    });
+

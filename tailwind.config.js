@@ -16,6 +16,8 @@ export default {
         extend: {
             fontFamily: {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
+                lora: ['Lora', ...defaultTheme.fontFamily.sans],
+                cairo: ['Cairo', ...defaultTheme.fontFamily.sans],
             },
         },
     },
